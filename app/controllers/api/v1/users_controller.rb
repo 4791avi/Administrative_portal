@@ -5,17 +5,7 @@ module Api
 			before_action :authorize
 
 			def index
-				if params[:email] == "email"
-					users = User.order("email")
-				elsif params[:mobile] == "mobile"
-					users = User.order("mobile")
-				elsif params[:name] == "name"
-					users = User.order("name")
-				elsif params[:city] == "city"
-					users = User.order("city")
-				else
-					users = User.all
-				end
+				users = User.all
 				render json: {status: "SUCCESS", message: "Loaded Users", data: users}, status: :ok 
 			end
 
@@ -110,7 +100,7 @@ module Api
 			private
 
 			def user_params
-				params.permit(:name, :email, :password, :city, :mobile)
+				params.permit(:name, :email, :password, :city, :mobile, :tag_list, :tag, { tag_ids: [] }, :tag_ids)
 			end
 		end
 	end
