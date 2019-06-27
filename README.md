@@ -2,9 +2,8 @@
 
 Administrative_portal
 
-# LOGIN DETAILS OF API AND ITS METHODS
+LOGIN DETAILS OF API AND ITS METHODS
 POST sessions
-
 URL: http://localhost:3000/api/v1/sessions
 
 request json: 
@@ -25,7 +24,7 @@ DELETE sessions
 
 URL: http://localhost:3000/api/v1/sessions/:id
 
-# USER DETAILS OF API AND ITS METHODS
+ USER DETAILS OF API AND ITS METHODS
 
 GET users
 
