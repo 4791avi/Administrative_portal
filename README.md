@@ -1,6 +1,9 @@
 # README
 
-Administrative_portal
+Application name - Administrative_portal
+
+ruby '2.6.1'
+rails '5.2.3'
 
 LOGIN DETAILS OF API AND ITS METHODS
 POST sessions
