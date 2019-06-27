@@ -1,24 +1,62 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Administrative_portal
 
-Things you may want to cover:
+# LOGIN DETAILS OF API AND ITS METHODS
+POST sessions
 
-* Ruby version
+URL: http://localhost:3000/api/v1/sessions
 
-* System dependencies
+request json: 
+	{
+		"email" : "avinash@yopmail.com",
+		"password" : "123456"
+	}
 
-* Configuration
+response json: 
+	{
+	    "status": "SUCCESS",
+	    "message": "Logged in!",
+	    "data": ""
+	}
 
-* Database creation
 
-* Database initialization
+DELETE sessions
 
-* How to run the test suite
+URL: http://localhost:3000/api/v1/sessions/:id
 
-* Services (job queues, cache servers, search engines, etc.)
+# USER DETAILS OF API AND ITS METHODS
 
-* Deployment instructions
+GET users
 
-* ...
+URL: http://localhost:3000/api/v1/users
+
+PUT http://localhost:3000/api/v1/users/:id
+
+POST http://localhost:3000/api/v1/remove_tag
+
+request json: 
+{
+
+          "tag_id" : 1,
+          "user_id" : 8
+	
+}
+
+POST http://localhost:3000/api/v1/sort
+
+{
+	"sort" : "city"
+}
+
+POST http://localhost:3000/api/v1/filter
+
+{
+	"mobile" : "9876543212"
+}
+
+PUT http://localhost:3000/api/v1/users/user_status/2
+
+{
+	"ability" : true
+}

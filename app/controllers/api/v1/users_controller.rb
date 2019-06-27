@@ -15,6 +15,9 @@ module Api
 
 			def create
 			  @user = User.new(user_params)
+			  if params[:tag_id]
+			  	@user.tags << Tag.find(params[:tag_id])
+			  end
 			  if @user.save
 			    session[:user_id] = @user.id
 			    render json: {status: "SUCCESS", message: "User Saved", data: @user}, status: :ok
@@ -94,6 +97,16 @@ module Api
 					render json: {status: "SUCCESS", message: "User deleted succesfully", data: user}, status: :ok
 				else
 					render json: {status: "ERROR", message: "User not found with id", data: params[:id]}, status: :unprocessable_entity
+				end
+			end
+
+			def remove_tag_user
+				if params[:user_id] and params[:tag_id]
+					user = User.find(params[:user_id])
+					user.tags.delete(params[:tag_id])
+					render json: {status: "SUCCESS", message: "User tag deleted succesfully", data: user}, status: :ok
+				else
+					render json: {status: "ERROR", message: "tag not found with user", data: ''}, status: :unprocessable_entity
 				end
 			end
 
